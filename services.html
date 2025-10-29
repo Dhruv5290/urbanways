@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services | Urbanways</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a961;
+      --pink: #e91e63;
+      --dark: #1a1a1a;
+      --charcoal: #2d2d2d;
+      --light-gray: #f5f5f5;
+      --white: #ffffff;
+      --accent-teal: #00bfa6;
+      --text-muted: #666;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 6%;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .logo a {
+      text-decoration: none;
+    }
+
+    .logo .urban {
+      color: var(--dark);
+    }
+
+    .logo .ways {
+      color: var(--pink);
+    }
+
+    nav {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--dark);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 1px;
+      background: var(--pink);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--pink);
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      height: 85vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                  url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920') center/cover no-repeat;
+      margin-top: 80px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      text-align: center;
+      color: var(--white);
+      max-width: 900px;
+      padding: 0 5%;
+    }
+
+    .hero-label {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: heroFadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+      letter-spacing: -1px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: heroFadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s forwards;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: heroFadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
+    }
+
+    @keyframes heroFadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* SCROLL ANIMATIONS */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .animate-on-scroll.animate-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .animate-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .animate-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .animate-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    .animate-scale {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .animate-scale.animate-visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .animate-stagger {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .animate-stagger.animate-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* INTRO SECTION */
+    .intro-section {
+      padding: 120px 8%;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    .intro-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 500;
+      line-height: 1.4;
+      margin-bottom: 2rem;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
+
+    .intro-section p {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: var(--text-muted);
+      font-weight: 300;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* SERVICES GRID */
+    .services-grid-section {
+      padding: 80px 8%;
+      background: var(--light-gray);
+    }
+
+    .services-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1px;
+      background: var(--white);
+    }
+
+    .service-card {
+      background: var(--light-gray);
+      padding: 60px 40px;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      background: var(--white);
+      transform: translateY(-5px);
+    }
+
+    .service-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--gold);
+      opacity: 0.2;
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* DETAILED SERVICES */
+    .detailed-services-section {
+      padding: 120px 8%;
+    }
+
+    .service-detail {
+      max-width: 1400px;
+      margin: 0 auto 120px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .service-detail:nth-child(even) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .service-detail:nth-child(even) .service-image {
+      order: 2;
+    }
+
+    .service-image {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .service-detail:hover .service-image img {
+      transform: scale(1.05);
+    }
+
+    .service-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
+
+    .service-content p {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .service-features {
+      list-style: none;
+      padding: 0;
+    }
+
+    .service-features li {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      padding: 12px 0;
+      padding-left: 30px;
+      position: relative;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .service-features li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 20px;
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    /* PROCESS SECTION */
+    .process-section {
+      background: var(--dark);
+      color: var(--white);
+      padding: 120px 8%;
+    }
+
+    .process-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .process-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 500;
+      margin-bottom: 3rem;
+      color: var(--white);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .process-step {
+      text-align: center;
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 1.2rem;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .process-step h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .process-step p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: var(--light-gray);
+      padding: 100px 8%;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 16px 50px;
+      background: var(--dark);
+      border: 1px solid var(--dark);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.4s ease;
+      font-weight: 400;
+    }
+
+    .cta-btn:hover {
+      background: transparent;
+      color: var(--dark);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 60px 6% 30px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 50px;
+      max-width: 1400px;
+      margin: 0 auto 50px;
+    }
+
+    .footer-column h3 {
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .footer-column p,
+    .footer-column a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      line-height: 2;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      color: var(--pink);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 30px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-bottom a {
+      color: var(--pink);
+      text-decoration: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .service-detail,
+      .service-detail:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .service-detail:nth-child(even) .service-image {
+        order: 0;
+      }
+
+      .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      nav a {
+        font-size: 0.8rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .service-image {
+        height: 350px;
+      }
+
+      .intro-section,
+      .services-grid-section,
+      .detailed-services-section,
+      .process-section,
+      .cta-section {
+        padding: 80px 5%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="header-content">
+      <div class="logo">
+        <a href="index.html">
+          <span class="urban">Urban</span><span class="ways">ways</span>
+        </a>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-label">Our Services</div>
+      <h1 class="hero-title">Comprehensive Architectural Solutions</h1>
+      <p class="hero-description">
+        Tailored services to bring your vision to life with precision, innovation, and excellence.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro-section">
+    <div class="section-label animate-on-scroll">What We Offer</div>
+    <h2 class="animate-on-scroll animate-delay-1">End-to-End Architecture & Design</h2>
+    <p class="animate-on-scroll animate-delay-2">
+      At Urbanways, we provide end-to-end architectural and design services that transform ideas into reality. 
+      Our multidisciplinary approach ensures every project—whether residential, commercial, or institutional—receives 
+      the attention, innovation, and expertise it deserves.
+    </p>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section class="services-grid-section">
+    <div class="services-grid">
+      <div class="service-card animate-stagger" style="transition-delay: 0.05s;">
+        <div class="service-number">01</div>
+        <h3>Master Planning</h3>
+        <p>Comprehensive planning that balances aesthetics, functionality, and sustainability</p>
+      </div>
+      <div class="service-card animate-stagger" style="transition-delay: 0.1s;">
+        <div class="service-number">02</div>
+        <h3>Construction Documentation</h3>
+        <p>Detailed drawings and specifications for seamless project execution</p>
+      </div>
+      <div class="service-card animate-stagger" style="transition-delay: 0.15s;">
+        <div class="service-number">03</div>
+        <h3>Approval Documentation</h3>
+        <p>Expert handling of regulatory approvals and compliance</p>
+      </div>
+      <div class="service-card animate-stagger" style="transition-delay: 0.2s;">
+        <div class="service-number">04</div>
+        <h3>Turnkey Solutions</h3>
+        <p>Complete project management from concept to completion</p>
+      </div>
+      <div class="service-card animate-stagger" style="transition-delay: 0.25s;">
+        <div class="service-number">05</div>
+        <h3>Interior Design</h3>
+        <p>Transforming spaces into experiences with thoughtful detailing</p>
+      </div>
+      <div class="service-card animate-stagger" style="transition-delay: 0.3s;">
+        <div class="service-number">06</div>
+        <h3>3D Visualization</h3>
+        <p>Photorealistic renderings and virtual walkthroughs</p>
+      </div>
+      <div class="service-card animate-stagger" style="transition-delay: 0.35s;">
+        <div class="service-number">07</div>
+        <h3>Structural Design</h3>
+        <p>Engineering excellence for safety and stability</p>
+      </div>
+      <div class="service-card animate-stagger" style="transition-delay: 0.4s;">
+        <div class="service-number">08</div>
+        <h3>Project Reports</h3>
+        <p>Comprehensive PPR and DPR for informed decisions</p>
+      </div>
+      <div class="service-card animate-stagger" style="transition-delay: 0.45s;">
+        <div class="service-number">09</div>
+        <h3>Landscape Architecture</h3>
+        <p>Harmonious integration of nature and built environment</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILED SERVICES -->
+  <section class="detailed-services-section">
+    
+    <!-- Service 1 -->
+    <div class="service-detail">
+      <div class="service-image animate-scale">
+        <img src="assets/services/masterplanning.jpg" alt="Master Planning">
+      </div>
+      <div class="service-content">
+        <h3 class="animate-on-scroll">Architectural Concept & Master Planning</h3>
+        <p class="animate-on-scroll animate-delay-1">
+          We create comprehensive master plans that balance aesthetics, functionality, and sustainability. 
+          Our conceptual designs lay the foundation for projects that respond to site context, community needs, 
+          and future growth.
+        </p>
+        <ul class="service-features animate-on-scroll animate-delay-2">
+          <li>Site analysis and feasibility studies</li>
+          <li>Conceptual design development</li>
+          <li>Urban planning and zoning compliance</li>
+          <li>Spatial programming and layout optimization</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="service-detail">
+      <div class="service-image animate-scale">
+        <img src="assets/services/turnkey.jpg" alt="Turnkey Solutions">
+      </div>
+      <div class="service-content">
+        <h3 class="animate-on-scroll">Architectural Turnkey Solutions & PMC</h3>
+        <p class="animate-on-scroll animate-delay-1">
+          We offer complete turnkey solutions that take your project from concept to completion. As your project 
+          management consultant, we oversee every phase—design, procurement, construction, and handover.
+        </p>
+        <ul class="service-features animate-on-scroll animate-delay-2">
+          <li>End-to-end project management</li>
+          <li>Vendor coordination and procurement</li>
+          <li>Quality control and site supervision</li>
+          <li>Budget management and cost optimization</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="service-detail">
+      <div class="service-image animate-scale">
+        <img src="assets/services/interior.jpg" alt="Interior Design">
+      </div>
+      <div class="service-content">
+        <h3 class="animate-on-scroll">Interior Design & Detailing</h3>
+        <p class="animate-on-scroll animate-delay-1">
+          Our interior design services transform spaces into experiences. We focus on creating interiors that 
+          reflect your personality or brand identity while ensuring comfort, functionality, and aesthetic appeal.
+        </p>
+        <ul class="service-features animate-on-scroll animate-delay-2">
+          <li>Space planning and layout design</li>
+          <li>Custom furniture and fixture design</li>
+          <li>Material selection and color schemes</li>
+          <li>Lighting design and ambiance creation</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="service-detail">
+      <div class="service-image animate-scale">
+        <img src="assets/services/landscape.jpg" alt="Landscape Architecture">
+      </div>
+      <div class="service-content">
+        <h3 class="animate-on-scroll">Landscape Architecture</h3>
+        <p class="animate-on-scroll animate-delay-1">
+          We believe outdoor spaces are extensions of architecture. Our landscape designs create harmonious 
+          connections between built environments and nature, incorporating sustainable practices and thoughtful elements.
+        </p>
+        <ul class="service-features animate-on-scroll animate-delay-2">
+          <li>Site landscaping and grading</li>
+          <li>Garden design and plant selection</li>
+          <li>Outdoor lighting and irrigation</li>
+          <li>Sustainable and eco-friendly solutions</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div class="process-container">
+      <div class="section-label animate-on-scroll" style="color: var(--gold);">Our Approach</div>
+      <h2 class="animate-on-scroll animate-delay-1">How We Work</h2>
+      <div class="process-steps">
+        <div class="process-step animate-on-scroll" style="transition-delay: 0.1s;">
+          <div class="step-number">01</div>
+          <h4>Listen & Understand</h4>
+          <p>We begin by understanding your vision, needs, and aspirations</p>
+        </div>
+        <div class="process-step animate-on-scroll" style="transition-delay: 0.2s;">
+          <div class="step-number">02</div>
+          <h4>Design & Develop</h4>
+          <p>Creating innovative solutions that blend form and function</p>
+        </div>
+        <div class="process-step animate-on-scroll" style="transition-delay: 0.3s;">
+          <div class="step-number">03</div>
+          <h4>Execute & Deliver</h4>
+          <p>Meticulous execution with attention to every detail</p>
+        </div>
+        <div class="process-step animate-on-scroll" style="transition-delay: 0.4s;">
+          <div class="step-number">04</div>
+          <h4>Support & Sustain</h4>
+          <p>Ongoing support to ensure lasting value and satisfaction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2 class="animate-on-scroll">Ready to Start Your Project?</h2>
+    <p class="animate-on-scroll animate-delay-1">
+      Let's collaborate to create spaces that inspire, function beautifully, and stand the test of time.
+    </p>
+    <a href="contact.html" class="cta-btn animate-on-scroll animate-delay-2">Get in Touch</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Urbanways</h3>
+        <p>Crafting spaces that inspire, elevate, and endure. Building the future of urban living with passion and precision.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <p><a href="about.html">About Us</a></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="index.html#portfolio">Portfolio</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <p>823, Indira Nagar Phase 2</p>
+        <p>Vasant Vihar, Dehradun</p>
+        <p>Uttarakhand 248006</p>
+        <p><a href="tel:+917248877772">+91 724 887 7772</a></p>
+        <p><a href="mailto:info@urbanways.co.in">info@urbanways.co.in</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <span class="urban">Urban</span><span class="ways">ways</span>. All Rights Reserved. | 
+      <a href="https://www.urbanways.co.in/terms">Terms of Use</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
+      } else {
+        header.style.boxShadow = 'none';
+      }
+    });
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -80px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-visible');
+          // Unobserve after animation to prevent re-triggering
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.querySelectorAll('.animate-on-scroll, .animate-scale, .animate-stagger').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>

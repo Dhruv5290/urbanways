@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urbanways | Redefining Urban Living</title>
+  <meta name="description" content="URBANWAYS - Crafting landmark structures with impeccable design standards and sustainable luxury.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="header-content">
+      <div class="logo">
+        <a href="#home">
+          <span class="urban">Urban</span><span class="ways">ways</span>
+        </a>
+      </div>
+      <nav>
+        <a href="#home" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-subtitle hero-animate">Urbanways</div>
+      <h1 class="hero-title hero-animate-delay-1">Redefining Urban Living</h1>
+      <p class="hero-description hero-animate-delay-2">
+        Creating landmark structures with impeccable design standards, 
+        sustainable luxury, and a commitment to enriching everyday life.
+      </p>
+      <a href="#portfolio" class="cta-btn hero-animate-delay-3">Explore Our Work</a>
+    </div>
+    <div class="scroll-indicator hero-animate-delay-4">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- REDEFINING SECTION -->
+  <section class="redefining-section">
+    <div class="section-subtitle premium-fade-in">Our Vision</div>
+    <h2 class="section-title premium-fade-in-up">Building Tomorrow's Landmarks Today</h2>
+    <p class="section-description premium-fade-in-up-delay">
+      For over a decade, Urbanways has been synonymous with architectural excellence, 
+      innovative design, and unwavering commitment to sustainability. Every structure we create 
+      is a harmonious blend of aesthetics, functionality, and environmental consciousness—
+      designed to elevate the quality of life for generations to come.
+    </p>
+  </section>
+
+  <!-- PORTFOLIO SLIDER -->
+  <section class="portfolio-section" id="portfolio">
+    <div class="portfolio-header">
+      <div class="section-subtitle premium-fade-in">Our Projects</div>
+      <h2 class="section-title premium-fade-in-up">Spaces That Inspire</h2>
+    </div>
+
+    <div class="portfolio-carousel-container">
+      <!-- Navigation Arrows -->
+      <button class="portfolio-nav-arrow portfolio-nav-prev" id="prevSlide" aria-label="Previous slide">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="portfolio-nav-arrow portfolio-nav-next" id="nextSlide" aria-label="Next slide">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <div class="portfolio-carousel-wrapper">
+        <div class="portfolio-carousel-track" id="portfolioTrack">
+          
+          <!-- Card 1: Hospitality -->
+          <div class="portfolio-card">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80" alt="Hospitality Projects">
+            </div>
+            <div class="portfolio-card-content">
+              <h3 class="portfolio-card-title">Hospitality</h3>
+              <p class="portfolio-card-description">Creating memorable experiences through thoughtful design</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Commercial -->
+          <div class="portfolio-card">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Commercial Projects">
+            </div>
+            <div class="portfolio-card-content">
+              <h3 class="portfolio-card-title">Commercial</h3>
+              <p class="portfolio-card-description">Innovative workspaces that inspire productivity</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Residential -->
+          <div class="portfolio-card">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Residential Projects">
+            </div>
+            <div class="portfolio-card-content">
+              <h3 class="portfolio-card-title">Residential</h3>
+              <p class="portfolio-card-description">Homes crafted for modern living and timeless elegance</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Social Infrastructure -->
+          <div class="portfolio-card">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1524813686514-a57563d77965?w=800&q=80" alt="Social Infrastructure">
+            </div>
+            <div class="portfolio-card-content">
+              <h3 class="portfolio-card-title">Social Infrastructure</h3>
+              <p class="portfolio-card-description">Spaces that empower communities and enrich lives</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="portfolio-progress">
+        <div class="portfolio-progress-bar" id="progressBar"></div>
+      </div>
+
+      <!-- Dots Navigation -->
+      <div class="portfolio-dots-nav">
+        <button class="portfolio-dot active" data-index="0" aria-label="Go to slide 1"></button>
+        <button class="portfolio-dot" data-index="1" aria-label="Go to slide 2"></button>
+        <button class="portfolio-dot" data-index="2" aria-label="Go to slide 3"></button>
+        <button class="portfolio-dot" data-index="3" aria-label="Go to slide 4"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECT -->
+  <section class="featured-project">
+    <div class="project-image-section">
+      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200" alt="Company Profile">
+    </div>
+    <div class="project-content-section">
+      <div class="project-label premium-fade-in">Who We Are</div>
+      <h2 class="project-title premium-fade-in-up">Excellence in Every Detail</h2>
+      <p class="project-description premium-fade-in-up-delay">
+        At Urbanways, innovation meets architectural mastery. As a premier architecture firm, 
+        we transform visions into reality through meticulous planning, sustainable practices, 
+        and an unwavering commitment to design excellence. Our spaces don't just meet expectations—
+        they create lasting impressions.
+      </p>
+      <a href="about.html" class="project-link premium-fade-in-up-delay">
+        Learn More <span>→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- DESIGN PHILOSOPHY -->
+  <section class="philosophy-section">
+    <div class="section-subtitle premium-fade-in">Design Philosophy</div>
+    <h2 class="section-title premium-fade-in-up">Our Commitment to Excellence</h2>
+    <p class="section-description premium-fade-in-up-delay">
+      We believe great design is invisible until you feel it. Every project embodies our core principles: 
+      simplicity in form, innovation in execution, and sustainability in practice.
+    </p>
+
+    <div class="philosophy-pillars">
+      <div class="pillar premium-fade-in-up">
+        <div class="pillar-icon">✦</div>
+        <h3 class="pillar-title">Innovation</h3>
+        <p class="pillar-text">Pushing boundaries with cutting-edge design and smart solutions</p>
+      </div>
+      <div class="pillar premium-fade-in-up-delay">
+        <div class="pillar-icon">◆</div>
+        <h3 class="pillar-title">Sustainability</h3>
+        <p class="pillar-text">Building responsibly with nature and future generations in mind</p>
+      </div>
+      <div class="pillar premium-fade-in-up-delay-2">
+        <div class="pillar-icon">✶</div>
+        <h3 class="pillar-title">Excellence</h3>
+        <p class="pillar-text">Uncompromising quality in every aspect of design and execution</p>
+      </div>
+      <div class="pillar premium-fade-in-up-delay-3">
+        <div class="pillar-icon">◈</div>
+        <h3 class="pillar-title">Collaboration</h3>
+        <p class="pillar-text">Working closely with clients to bring their vision to life</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section class="contact-cta">
+    <h2 class="premium-fade-in-up">Start Your Journey With Us</h2>
+    <p class="premium-fade-in-up-delay">Let's create something extraordinary together</p>
+    <a href="contact.html" class="cta-btn premium-fade-in-up-delay-2">Get in Touch</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Urbanways</h3>
+        <p>Crafting spaces that inspire, elevate, and endure. Building the future of urban living with passion and precision.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <p><a href="about.html">About Us</a></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="#portfolio">Portfolio</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <p>823, Indira Nagar Phase 2</p>
+        <p>Vasant Vihar, Dehradun</p>
+        <p>Uttarakhand 248006</p>
+        <p><a href="tel:+917248877772">+91 724 887 7772</a></p>
+        <p><a href="mailto:info@urbanways.co.in">info@urbanways.co.in</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <span class="urban">Urban</span><span class="ways">ways</span>. All Rights Reserved. | 
+      <a href="https://www.urbanways.co.in/terms">Terms of Use</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
