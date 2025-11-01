@@ -1,251 +1,473 @@
-// Header scroll effect
+// ===================================
+// HEADER SCROLL EFFECT
+// ===================================
 const header = document.getElementById('header');
+let lastScroll = 0;
+
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
+  const currentScroll = window.pageYOffset;
+
+  if (currentScroll > 50) {
     header.classList.add('scrolled');
   } else {
     header.classList.remove('scrolled');
   }
+
+  lastScroll = currentScroll;
 });
 
-// Portfolio Carousel - Premium Multi-Card Design
-const portfolioTrack = document.getElementById('portfolioTrack');
-const portfolioDots = document.querySelectorAll('.portfolio-dot');
-const prevButton = document.getElementById('prevSlide');
-const nextButton = document.getElementById('nextSlide');
-const progressBar = document.getElementById('progressBar');
-const portfolioCards = document.querySelectorAll('.portfolio-card');
+// ===================================
+// MOBILE MENU TOGGLE
+// ===================================
+const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+const nav = document.getElementById('nav');
 
-let currentIndex = 0;
-let isTransitioning = false;
-let autoplayTimer;
-const totalCards = portfolioCards.length;
+if (mobileMenuToggle) {
+  mobileMenuToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    mobileMenuToggle.classList.toggle('active');
 
-// Get cards per view based on screen size
-function getCardsPerView() {
-  if (window.innerWidth <= 768) return 1;
-  if (window.innerWidth <= 1024) return 2;
-  return 3;
-}
-
-// Calculate maximum index (total cards - 1)
-function getMaxIndex() {
-  return totalCards - 1;
-}
-
-// Update carousel position
-function updateCarousel(instant = false) {
-  if (isTransitioning && !instant) return;
-  
-  isTransitioning = true;
-  
-  const maxIndex = getMaxIndex();
-  
-  // Clamp index to valid range
-  if (currentIndex < 0) currentIndex = 0;
-  if (currentIndex > maxIndex) currentIndex = maxIndex;
-  
-  // Calculate offset
-  const cardWidth = portfolioCards[0].offsetWidth;
-  const gap = window.innerWidth <= 768 ? 20 : (window.innerWidth <= 1024 ? 30 : 40);
-  const offset = currentIndex * (cardWidth + gap);
-  
-  // Apply transform
-  if (instant) {
-    portfolioTrack.style.transition = 'none';
-  } else {
-    portfolioTrack.style.transition = 'transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-  }
-  
-  portfolioTrack.style.transform = `translateX(-${offset}px)`;
-  
-  // Update dots - each dot represents one card
-  portfolioDots.forEach((dot, index) => {
-    dot.classList.toggle('active', index === currentIndex);
-  });
-  
-  // Update progress bar - smooth gradient across all slides
-  const progressPercentage = ((currentIndex + 1) / totalCards) * 100;
-  progressBar.style.width = `${progressPercentage}%`;
-  
-  setTimeout(() => {
-    isTransitioning = false;
-  }, instant ? 0 : 800);
-}
-
-// Navigate to specific slide
-function goToSlide(index) {
-  if (index >= 0 && index < totalCards) {
-    currentIndex = index;
-    updateCarousel();
-    resetAutoplay();
-  }
-}
-
-// Previous slide
-function prevSlide() {
-  if (currentIndex > 0) {
-    currentIndex--;
-    updateCarousel();
-    resetAutoplay();
-  }
-}
-
-// Next slide
-function nextSlide() {
-  if (currentIndex < getMaxIndex()) {
-    currentIndex++;
-    updateCarousel();
-    resetAutoplay();
-  }
-}
-
-// Dot navigation - click any dot to go to that card
-portfolioDots.forEach((dot, index) => {
-  dot.addEventListener('click', () => {
-    goToSlide(index);
-  });
-});
-
-// Button navigation
-prevButton.addEventListener('click', prevSlide);
-nextButton.addEventListener('click', nextSlide);
-
-// Card click - go to next slide
-portfolioCards.forEach((card) => {
-  card.addEventListener('click', () => {
-    nextSlide();
-  });
-});
-
-// Autoplay
-function startAutoplay() {
-  autoplayTimer = setInterval(() => {
-    if (currentIndex < getMaxIndex()) {
-      nextSlide();
+    // Animate hamburger icon
+    const spans = mobileMenuToggle.querySelectorAll('span');
+    if (mobileMenuToggle.classList.contains('active')) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
     } else {
-      // Loop back to start
-      currentIndex = 0;
-      updateCarousel();
+      spans[0].style.transform = 'none';
+      spans[1].style.opacity = '1';
+      spans[2].style.transform = 'none';
     }
-  }, 4000);
+  });
 }
 
-function resetAutoplay() {
-  clearInterval(autoplayTimer);
-  startAutoplay();
-}
-
-// Pause on hover
-const carouselContainer = document.querySelector('.portfolio-carousel-container');
-carouselContainer.addEventListener('mouseenter', () => {
-  clearInterval(autoplayTimer);
-});
-
-carouselContainer.addEventListener('mouseleave', () => {
-  startAutoplay();
-});
-
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowLeft') {
-    prevSlide();
-  } else if (e.key === 'ArrowRight') {
-    nextSlide();
-  }
-});
-
-// Touch swipe
-let touchStartX = 0;
-let touchEndX = 0;
-
-portfolioTrack.addEventListener('touchstart', (e) => {
-  touchStartX = e.changedTouches[0].screenX;
-}, { passive: true });
-
-portfolioTrack.addEventListener('touchend', (e) => {
-  touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
-}, { passive: true });
-
-function handleSwipe() {
-  const swipeThreshold = 50;
-  const diff = touchStartX - touchEndX;
-
-  if (Math.abs(diff) > swipeThreshold) {
-    if (diff > 0) {
-      nextSlide();
-    } else {
-      prevSlide();
-    }
-  }
-}
-
-// Handle window resize
-let resizeTimeout;
-window.addEventListener('resize', () => {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(() => {
-    updateCarousel(true);
-  }, 250);
-});
-
-// Initialize
-updateCarousel(true);
-startAutoplay();
-
-// Smooth scroll for anchor links
+// ===================================
+// SMOOTH SCROLL FOR ANCHOR LINKS
+// ===================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
+    const href = this.getAttribute('href');
+
+    // Ignore empty hashes
+    if (href === '#' || href === '#!') {
+      e.preventDefault();
+      return;
+    }
+
+    const target = document.querySelector(href);
     if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+      e.preventDefault();
+
+      // Close mobile menu if open
+      if (nav && nav.classList.contains('active')) {
+        nav.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+
+        const spans = mobileMenuToggle.querySelectorAll('span');
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+      }
+
+      const headerHeight = header.offsetHeight;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
       });
     }
   });
 });
 
-// Update active nav link on scroll
+// ===================================
+// ACTIVE NAV LINK ON SCROLL
+// ===================================
 const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('nav a[href^="#"]');
+const navLinks = document.querySelectorAll('.nav-link');
 
-window.addEventListener('scroll', () => {
-  let current = '';
+function updateActiveNav() {
+  const scrollPos = window.pageYOffset + 100;
+
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (window.pageYOffset >= sectionTop - 200) {
-      current = section.getAttribute('id');
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute('id');
+
+    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active');
+        }
+      });
     }
   });
+}
 
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
-  });
-});
+window.addEventListener('scroll', updateActiveNav);
 
-// Intersection Observer for premium fade-in animations
+// ===================================
+// AOS (ANIMATE ON SCROLL) - LIGHTWEIGHT VERSION
+// ===================================
 const observerOptions = {
   threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
+  rootMargin: '0px 0px -100px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
+      entry.target.classList.add('aos-animate');
+      // Optionally unobserve after animation
+      // observer.unobserve(entry.target);
     }
   });
 }, observerOptions);
 
-// Observe all premium animation elements
-document.querySelectorAll('[class*="premium-fade"]').forEach(el => {
+// Observe all elements with data-aos attribute
+document.querySelectorAll('[data-aos]').forEach(el => {
   observer.observe(el);
 });
+
+// ===================================
+// FORM SUBMISSION HANDLING
+// ===================================
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Get form data
+    const formData = new FormData(contactForm);
+
+    // Show success message (you can replace this with actual form submission)
+    showNotification('Thank you! Your message has been sent successfully.', 'success');
+
+    // Reset form
+    contactForm.reset();
+  });
+}
+
+// ===================================
+// NOTIFICATION SYSTEM
+// ===================================
+function showNotification(message, type = 'success') {
+  // Remove existing notifications
+  const existingNotification = document.querySelector('.notification');
+  if (existingNotification) {
+    existingNotification.remove();
+  }
+
+  // Create notification element
+  const notification = document.createElement('div');
+  notification.className = `notification notification-${type}`;
+  notification.innerHTML = `
+    <div class="notification-content">
+      <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+      <span>${message}</span>
+    </div>
+  `;
+
+  // Add styles
+  notification.style.cssText = `
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: ${type === 'success' ? '#10b981' : '#ef4444'};
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    animation: slideIn 0.3s ease-out;
+  `;
+
+  // Add animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes slideIn {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    @keyframes slideOut {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Append to body
+  document.body.appendChild(notification);
+
+  // Remove after 5 seconds
+  setTimeout(() => {
+    notification.style.animation = 'slideOut 0.3s ease-out';
+    setTimeout(() => {
+      notification.remove();
+    }, 300);
+  }, 5000);
+}
+
+// ===================================
+// NEWSLETTER FORM HANDLING
+// ===================================
+const newsletterForm = document.querySelector('.newsletter-form');
+
+if (newsletterForm) {
+  newsletterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const emailInput = newsletterForm.querySelector('input[type="email"]');
+    const email = emailInput.value;
+
+    if (email && validateEmail(email)) {
+      showNotification('Successfully subscribed to our newsletter!', 'success');
+      newsletterForm.reset();
+    } else {
+      showNotification('Please enter a valid email address.', 'error');
+    }
+  });
+}
+
+// Email validation helper
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+
+// ===================================
+// COUNTER ANIMATION FOR STATS
+// ===================================
+function animateCounter(element, target, duration = 2000) {
+  const start = 0;
+  const increment = target / (duration / 16);
+  let current = start;
+
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      element.textContent = formatNumber(target);
+      clearInterval(timer);
+    } else {
+      element.textContent = formatNumber(Math.floor(current));
+    }
+  }, 16);
+}
+
+function formatNumber(num) {
+  if (num >= 1000) {
+    return (num / 1000).toFixed(0) + 'K+';
+  }
+  return num + '+';
+}
+
+// Observe stat numbers
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const statNumber = entry.target;
+      const text = statNumber.textContent;
+
+      // Extract number from text (e.g., "500+" -> 500)
+      const match = text.match(/(\d+)/);
+      if (match) {
+        const target = parseInt(match[1]);
+        animateCounter(statNumber, target);
+      }
+
+      statObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-number').forEach(stat => {
+  statObserver.observe(stat);
+});
+
+// ===================================
+// PARALLAX EFFECT FOR HERO GRADIENT ORBS
+// ===================================
+window.addEventListener('mousemove', (e) => {
+  const orbs = document.querySelectorAll('.gradient-orb');
+  const x = e.clientX / window.innerWidth;
+  const y = e.clientY / window.innerHeight;
+
+  orbs.forEach((orb, index) => {
+    const speed = (index + 1) * 20;
+    const xMove = (x - 0.5) * speed;
+    const yMove = (y - 0.5) * speed;
+
+    orb.style.transform = `translate(${xMove}px, ${yMove}px)`;
+  });
+});
+
+// ===================================
+// SERVICE CARDS TILT EFFECT
+// ===================================
+const serviceCards = document.querySelectorAll('.service-card');
+
+serviceCards.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = (y - centerY) / 10;
+    const rotateY = (centerX - x) / 10;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+// ===================================
+// LAZY LOADING IMAGES
+// ===================================
+const imageObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const img = entry.target;
+      if (img.dataset.src) {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+      }
+      imageObserver.unobserve(img);
+    }
+  });
+});
+
+document.querySelectorAll('img[data-src]').forEach(img => {
+  imageObserver.observe(img);
+});
+
+// ===================================
+// PERFORMANCE: REDUCE MOTION FOR USERS WHO PREFER IT
+// ===================================
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  // Disable animations
+  document.querySelectorAll('[data-aos]').forEach(el => {
+    el.classList.add('aos-animate');
+  });
+
+  // Remove smooth scroll
+  document.documentElement.style.scrollBehavior = 'auto';
+}
+
+// ===================================
+// PAGE LOAD ANIMATION
+// ===================================
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded');
+
+  // Trigger initial animations
+  setTimeout(() => {
+    const heroElements = document.querySelectorAll('.hero-section [data-aos]');
+    heroElements.forEach(el => {
+      el.classList.add('aos-animate');
+    });
+  }, 100);
+});
+
+// ===================================
+// INTERSECTION OBSERVER FOR SECTIONS
+// ===================================
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section').forEach(section => {
+  sectionObserver.observe(section);
+});
+
+// ===================================
+// COPY TO CLIPBOARD FUNCTIONALITY
+// ===================================
+function copyToClipboard(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showNotification('Copied to clipboard!', 'success');
+    }).catch(() => {
+      showNotification('Failed to copy to clipboard.', 'error');
+    });
+  } else {
+    // Fallback for older browsers
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+
+    try {
+      document.execCommand('copy');
+      showNotification('Copied to clipboard!', 'success');
+    } catch (err) {
+      showNotification('Failed to copy to clipboard.', 'error');
+    }
+
+    document.body.removeChild(textarea);
+  }
+}
+
+// Add click event to email/phone elements if needed
+document.querySelectorAll('.contact-text p').forEach(element => {
+  const text = element.textContent;
+  if (text.includes('@') || text.includes('+')) {
+    element.style.cursor = 'pointer';
+    element.title = 'Click to copy';
+
+    element.addEventListener('click', () => {
+      copyToClipboard(text);
+    });
+  }
+});
+
+// ===================================
+// KEYBOARD NAVIGATION ACCESSIBILITY
+// ===================================
+document.addEventListener('keydown', (e) => {
+  // ESC key to close mobile menu
+  if (e.key === 'Escape' && nav && nav.classList.contains('active')) {
+    nav.classList.remove('active');
+    mobileMenuToggle.classList.remove('active');
+
+    const spans = mobileMenuToggle.querySelectorAll('span');
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+});
+
+// ===================================
+// CONSOLE MESSAGE
+// ===================================
+console.log('%c👋 Welcome to UrbanConnect!', 'color: #667eea; font-size: 20px; font-weight: bold;');
+console.log('%cBuilt with modern web technologies', 'color: #64748b; font-size: 14px;');
+console.log('%cInterested in working with us? Visit the contact section!', 'color: #ec4899; font-size: 12px;');
