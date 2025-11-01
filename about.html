@@ -3,593 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | Urbanways</title>
+  <title>About Us | UrbanConnect Digital Marketing</title>
+  <meta name="description" content="Learn about UrbanConnect - a team of digital marketing experts, creative minds, and strategic thinkers helping businesses thrive.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --gold: #c9a961;
-      --pink: #e91e63;
-      --dark: #1a1a1a;
-      --charcoal: #2d2d2d;
-      --light-gray: #f5f5f5;
-      --white: #ffffff;
-      --accent-teal: #00bfa6;
-      --text-muted: #666;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--dark);
-      background: var(--white);
-      line-height: 1.8;
-      overflow-x: hidden;
-    }
-
-    /* HEADER */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 6%;
-      max-width: 1600px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    .logo a {
-      text-decoration: none;
-    }
-
-    .logo .urban {
-      color: var(--dark);
-    }
-
-    .logo .ways {
-      color: var(--pink);
-    }
-
-    nav {
-      display: flex;
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    nav a {
-      color: var(--dark);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 400;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      position: relative;
-      transition: color 0.3s ease;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      width: 0;
-      height: 1px;
-      background: var(--pink);
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-    }
-
-    nav a:hover::after,
-    nav a.active::after {
-      width: 100%;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--pink);
-    }
-
-    /* HERO SECTION */
-    .hero-section {
-      height: 85vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-                  url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920') center/cover no-repeat;
-      margin-top: 80px;
-      overflow: hidden;
-    }
-
-    .hero-content {
-      text-align: center;
-      color: var(--white);
-      max-width: 900px;
-      padding: 0 5%;
-    }
-
-    .hero-label {
-      font-size: 0.75rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      font-weight: 400;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: heroFadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards;
-    }
-
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      font-weight: 500;
-      line-height: 1.2;
-      margin-bottom: 2rem;
-      letter-spacing: -1px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: heroFadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s forwards;
-    }
-
-    .hero-description {
-      font-size: 1.1rem;
-      font-weight: 300;
-      line-height: 1.8;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: heroFadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
-    }
-
-    @keyframes heroFadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* SCROLL ANIMATIONS */
-    .animate-on-scroll {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .animate-on-scroll.animate-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .animate-delay-1 {
-      transition-delay: 0.1s;
-    }
-
-    .animate-delay-2 {
-      transition-delay: 0.2s;
-    }
-
-    .animate-delay-3 {
-      transition-delay: 0.3s;
-    }
-
-    .animate-fade {
-      opacity: 0;
-      transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .animate-fade.animate-visible {
-      opacity: 1;
-    }
-
-    .animate-scale {
-      opacity: 0;
-      transform: scale(0.95);
-      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                  transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .animate-scale.animate-visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    /* INTRODUCTION SECTION */
-    .intro-section {
-      padding: 120px 8%;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .intro-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .intro-image {
-      position: relative;
-      height: 600px;
-      overflow: hidden;
-    }
-
-    .intro-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .intro-content h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3.2rem);
-      font-weight: 500;
-      line-height: 1.3;
-      margin-bottom: 2rem;
-      color: var(--dark);
-      letter-spacing: -0.5px;
-    }
-
-    .intro-content p {
-      font-size: 1.05rem;
-      line-height: 1.9;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      font-weight: 300;
-    }
-
-    .intro-highlight {
-      font-size: 1.15rem;
-      color: var(--gold);
-      font-weight: 400;
-      font-style: italic;
-      margin-top: 2rem;
-      padding-left: 30px;
-      border-left: 2px solid var(--gold);
-    }
-
-    /* MISSION SECTION */
-    .mission-section {
-      background: var(--light-gray);
-      padding: 100px 8%;
-    }
-
-    .mission-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .section-label {
-      font-size: 0.75rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-      font-weight: 500;
-    }
-
-    .mission-container h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 500;
-      line-height: 1.4;
-      margin-bottom: 2.5rem;
-      color: var(--dark);
-      letter-spacing: -0.5px;
-    }
-
-    .mission-container p {
-      font-size: 1.1rem;
-      line-height: 1.9;
-      color: var(--text-muted);
-      font-weight: 300;
-      margin-bottom: 1.5rem;
-    }
-
-    /* VALUES SECTION */
-    .values-section {
-      padding: 120px 8%;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .values-header {
-      text-align: center;
-      margin-bottom: 80px;
-    }
-
-    .values-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      color: var(--dark);
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 60px;
-    }
-
-    .value-card {
-      text-align: center;
-    }
-
-    .value-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 4rem;
-      color: var(--gold);
-      opacity: 0.3;
-      font-weight: 300;
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-
-    .value-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      color: var(--dark);
-      font-weight: 500;
-      letter-spacing: 0.5px;
-    }
-
-    .value-card p {
-      font-size: 1rem;
-      line-height: 1.8;
-      color: var(--text-muted);
-      font-weight: 300;
-    }
-
-    /* TEAM SECTION */
-    .team-section {
-      background: var(--light-gray);
-      padding: 120px 8%;
-    }
-
-    .team-header {
-      text-align: center;
-      margin-bottom: 80px;
-    }
-
-    .team-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 500;
-      color: var(--dark);
-      margin-bottom: 1rem;
-    }
-
-    .team-container {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .team-member {
-      display: grid;
-      grid-template-columns: 400px 1fr;
-      gap: 80px;
-      margin-bottom: 100px;
-      align-items: start;
-    }
-
-    .team-member:nth-child(even) {
-      grid-template-columns: 1fr 400px;
-    }
-
-    .team-member:nth-child(even) .team-image {
-      order: 2;
-    }
-
-    .team-image {
-      position: relative;
-      height: 500px;
-      overflow: hidden;
-    }
-
-    .team-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(20%);
-      transition: filter 0.5s ease;
-    }
-
-    .team-image:hover img {
-      filter: grayscale(0%);
-    }
-
-    .team-info h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      color: var(--dark);
-      font-weight: 500;
-    }
-
-    .team-role {
-      font-size: 1.1rem;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
-      font-weight: 400;
-    }
-
-    .team-credentials {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-      font-weight: 300;
-    }
-
-    .team-bio {
-      font-size: 1.05rem;
-      line-height: 1.9;
-      color: var(--text-muted);
-      font-weight: 300;
-    }
-
-    /* CTA SECTION */
-    .cta-section {
-      background: var(--dark);
-      color: var(--white);
-      padding: 100px 8%;
-      text-align: center;
-    }
-
-    .cta-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-section p {
-      font-size: 1.1rem;
-      margin-bottom: 2.5rem;
-      opacity: 0.9;
-      font-weight: 300;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      padding: 16px 50px;
-      background: transparent;
-      border: 1px solid var(--white);
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: all 0.4s ease;
-      font-weight: 400;
-    }
-
-    .cta-btn:hover {
-      background: var(--white);
-      color: var(--dark);
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--charcoal);
-      color: rgba(255, 255, 255, 0.7);
-      padding: 60px 6% 30px;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 50px;
-      max-width: 1400px;
-      margin: 0 auto 50px;
-    }
-
-    .footer-column h3 {
-      color: var(--white);
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      font-weight: 500;
-    }
-
-    .footer-column p,
-    .footer-column a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      font-size: 0.9rem;
-      line-height: 2;
-      transition: color 0.3s ease;
-    }
-
-    .footer-column a:hover {
-      color: var(--pink);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 30px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.5);
-    }
-
-    .footer-bottom a {
-      color: var(--pink);
-      text-decoration: none;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .intro-grid,
-      .team-member,
-      .team-member:nth-child(even) {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .team-member:nth-child(even) .team-image {
-        order: 0;
-      }
-
-      .values-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .header-content {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-      }
-
-      nav a {
-        font-size: 0.8rem;
-      }
-
-      .intro-section,
-      .mission-section,
-      .values-section,
-      .team-section,
-      .cta-section {
-        padding: 80px 5%;
-      }
-
-      .intro-image,
-      .team-image {
-        height: 400px;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -598,226 +18,298 @@
     <div class="header-content">
       <div class="logo">
         <a href="index.html">
-          <span class="urban">Urban</span><span class="ways">ways</span>
+          <span class="logo-text">Urban</span><span class="logo-accent">Connect</span>
         </a>
       </div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html" class="active">About</a>
-        <a href="index.html#portfolio">Portfolio</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
+      <nav id="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
+      <a href="contact.html" class="cta-header-btn">Get Started</a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <div class="hero-label">About Urbanways</div>
-      <h1 class="hero-title">Crafting Spaces That Define Tomorrow</h1>
-      <p class="hero-description">
-        Building sustainable, inspiring, and people-centered environments through design excellence and unwavering commitment to quality.
-      </p>
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="page-header-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="grid-pattern"></div>
     </div>
-  </section>
-
-  <!-- INTRODUCTION -->
-  <section class="intro-section">
-    <div class="intro-grid">
-      <div class="intro-image animate-scale">
-        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200" alt="Urbanways Architecture">
-      </div>
-      <div class="intro-content">
-        <h2 class="animate-on-scroll">Where Vision Meets Architectural Excellence</h2>
-        <p class="animate-on-scroll animate-delay-1">
-          Urbanways exists to uplift communities through places that feel like they were always meant to be there. 
-          We listen first—to culture, history, geography, and the people who will actually live or work in the space.
-        </p>
-        <p class="animate-on-scroll animate-delay-2">
-          Then we design and build commercial and residential environments that honor those stories while meeting 
-          tomorrow's energy and resource standards. Every line we draw, every beam we place, is guided by three 
-          non-negotiables: design excellence, unbreakable integrity, and a relentless drive to turn our clients' 
-          aspirations into measurable value.
-        </p>
-        <p class="intro-highlight animate-on-scroll animate-delay-3">
-          "Build once. Build right. Build for the common good."
+    <div class="container">
+      <div class="page-header-content" data-aos="fade-up">
+        <h1 class="page-title">About <span class="gradient-text">UrbanConnect</span></h1>
+        <p class="page-description">
+          We're a team of digital marketing experts, creative minds, and strategic thinkers dedicated to helping businesses thrive in the digital landscape.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- MISSION -->
-  <section class="mission-section">
-    <div class="mission-container">
-      <div class="section-label animate-on-scroll">Our Mission</div>
-      <h2 class="animate-on-scroll animate-delay-1">Uplifting Communities Through Design</h2>
-      <p class="animate-on-scroll animate-delay-2">
-        We believe great space is invisible until you feel it—then you can't live without it. 
-        Every line we draw fuses cold-hard function with quiet beauty, pushing materials, light, 
-        and land a little further so daily life lifts.
-      </p>
-      <p class="animate-on-scroll animate-delay-3">
-        From downtown towers to backyard renovations, if it isn't greener, smarter, and more human 
-        when we leave, we haven't finished.
-      </p>
+  <!-- ABOUT INTRO -->
+  <section class="about-intro-section">
+    <div class="container">
+      <div class="about-intro-grid">
+        <div class="about-intro-content" data-aos="fade-right">
+          <span class="section-badge">Our Story</span>
+          <h2 class="section-title">
+            We're More Than Just<br/>
+            <span class="gradient-text">A Marketing Agency</span>
+          </h2>
+          <p class="about-intro-text">
+            At UrbanConnect, we believe in the power of connection. Founded in 2015, we've grown from a small team of passionate marketers into a full-service digital marketing agency that serves clients across the globe.
+          </p>
+          <p class="about-intro-text">
+            Our mission is simple: to help businesses of all sizes harness the power of digital marketing to achieve their goals, connect with their audiences, and drive meaningful growth.
+          </p>
+          <p class="about-intro-text">
+            With over 10 years of experience and hundreds of successful campaigns under our belt, we've mastered the art of turning digital strategies into tangible business results.
+          </p>
+        </div>
+        <div class="about-intro-stats" data-aos="fade-left">
+          <div class="stat-box">
+            <div class="stat-box-number">10+</div>
+            <div class="stat-box-label">Years Experience</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-number">500+</div>
+            <div class="stat-box-label">Projects Completed</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-number">98%</div>
+            <div class="stat-box-label">Client Satisfaction</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-number">250%</div>
+            <div class="stat-box-label">Avg ROI Increase</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- VALUES -->
+  <!-- VALUES SECTION -->
   <section class="values-section">
-    <div class="values-header">
-      <div class="section-label animate-on-scroll">What Sets Us Apart</div>
-      <h2 class="animate-on-scroll animate-delay-1">Our Core Values</h2>
-    </div>
-    <div class="values-grid">
-      <div class="value-card animate-on-scroll">
-        <div class="value-number">01</div>
-        <h3>Collaborative Approach</h3>
-        <p>
-          We believe in the power of collaboration. Our team works closely with clients, 
-          ensuring their vision is seamlessly integrated into every design decision.
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">Our Values</span>
+        <h2 class="section-title">What We <span class="gradient-text">Stand For</span></h2>
+        <p class="section-description">
+          Our core values guide everything we do, from how we work with clients to how we approach each campaign.
         </p>
       </div>
-      <div class="value-card animate-on-scroll animate-delay-1">
-        <div class="value-number">02</div>
-        <h3>Innovative Solutions</h3>
-        <p>
-          From sustainable architecture to smart design solutions, we stay at the forefront 
-          of industry trends, bringing fresh ideas to every project.
-        </p>
-      </div>
-      <div class="value-card animate-on-scroll animate-delay-2">
-        <div class="value-number">03</div>
-        <h3>Attention to Detail</h3>
-        <p>
-          Our meticulous attention to detail sets us apart. Every line, curve, and material 
-          choice is carefully considered to achieve harmonious and functional design.
-        </p>
+
+      <div class="values-grid">
+        <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="value-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="value-title">Data-Driven</h3>
+          <p class="value-description">
+            Every decision we make is backed by data and analytics. We believe in measurable results and transparent reporting.
+          </p>
+        </div>
+
+        <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="value-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3 class="value-title">Creative Excellence</h3>
+          <p class="value-description">
+            We push creative boundaries to deliver campaigns that stand out, engage audiences, and drive action.
+          </p>
+        </div>
+
+        <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="value-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3 class="value-title">Client Partnership</h3>
+          <p class="value-description">
+            We don't just work for you—we work with you. Your success is our success, and we're committed to building long-term partnerships.
+          </p>
+        </div>
+
+        <div class="value-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="value-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3 class="value-title">Innovation First</h3>
+          <p class="value-description">
+            The digital landscape is always evolving, and so are we. We stay ahead of trends to keep your brand at the forefront.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- TEAM -->
+  <!-- TEAM SECTION -->
   <section class="team-section">
-    <div class="team-header">
-      <div class="section-label animate-on-scroll">Leadership</div>
-      <h2 class="animate-on-scroll animate-delay-1">Meet The Visionaries</h2>
-    </div>
-    <div class="team-container">
-      <!-- Team Member 1 -->
-      <div class="team-member">
-        <div class="team-image animate-scale">
-          <img src="vikas.jpg" alt="Mr. Vikas Ghildiyal">
-        </div>
-        <div class="team-info">
-          <h3 class="animate-on-scroll">Mr. Vikas Ghildiyal</h3>
-          <p class="team-role animate-on-scroll animate-delay-1">Founder & Director</p>
-          <p class="team-credentials animate-on-scroll animate-delay-1">MBA (Sales & Marketing) | 10+ Years of Experience</p>
-          <p class="team-bio animate-on-scroll animate-delay-2">
-            Mr. Vikas Ghildiyal, an accomplished professional with a robust MBA background in Sales and Marketing, 
-            stands at the forefront of innovation and excellence. Known for his dynamic and strategic approach to 
-            leadership, he brings a unique blend of vision and hands-on experience to the table. He is adept at 
-            crafting and executing innovative sales and marketing strategies that propel organizations to new heights 
-            of success. His vision extends beyond conventional approaches, fostering a culture of creativity, 
-            adaptability, and customer-centricity.
-          </p>
-        </div>
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">Meet The Team</span>
+        <h2 class="section-title">The Minds Behind <span class="gradient-text">UrbanConnect</span></h2>
+        <p class="section-description">
+          Our diverse team brings together expertise in strategy, creativity, analytics, and technology.
+        </p>
       </div>
 
-      <!-- Team Member 2 -->
-      <div class="team-member">
-        <div class="team-image animate-scale">
-          <img src="sheetu.jpg" alt="Ar. Sheetu Goel">
+      <div class="team-grid">
+        <div class="team-member" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-member-image">
+            <img src="https://i.pravatar.cc/400?img=33" alt="John Smith">
+          </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">John Smith</h3>
+            <p class="team-member-role">Founder & CEO</p>
+            <p class="team-member-bio">
+              With 15+ years in digital marketing, John leads our strategic vision and client relationships.
+            </p>
+            <div class="team-member-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="team-info">
-          <h3 class="animate-on-scroll">Ar. Sheetu Goel</h3>
-          <p class="team-role animate-on-scroll animate-delay-1">Director & Principal Architect</p>
-          <p class="team-credentials animate-on-scroll animate-delay-1">M.Arch (Recreational), B.Arch | 10+ Years of Experience</p>
-          <p class="team-bio animate-on-scroll animate-delay-2">
-            Mrs. Sheetu Goel is the principal designer of the firm and heads the Architecture & Design department. 
-            She has over 10 years of experience in the profession. All stages of the projects, from concept 
-            development to final detailing, are overlooked by her. With her unique design aesthetic, attention 
-            to detail, and focus on innovation and leadership, she is an invaluable asset to the team. Before 
-            forming Urbanways, she worked with renowned firms such as Architect J.R. Bhalla, JP Group, and Arcop 
-            Pvt. Ltd., contributing to residential, commercial, institutional, and industrial projects.
-          </p>
+
+        <div class="team-member" data-aos="fade-up" data-aos-delay="200">
+          <div class="team-member-image">
+            <img src="https://i.pravatar.cc/400?img=47" alt="Sarah Johnson">
+          </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Sarah Johnson</h3>
+            <p class="team-member-role">Creative Director</p>
+            <p class="team-member-bio">
+              Sarah transforms ideas into compelling visuals and campaigns that captivate audiences.
+            </p>
+            <div class="team-member-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-member" data-aos="fade-up" data-aos-delay="300">
+          <div class="team-member-image">
+            <img src="https://i.pravatar.cc/400?img=12" alt="Michael Chen">
+          </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Michael Chen</h3>
+            <p class="team-member-role">Head of Analytics</p>
+            <p class="team-member-bio">
+              Michael ensures every campaign is optimized for maximum performance through data insights.
+            </p>
+            <div class="team-member-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-member" data-aos="fade-up" data-aos-delay="400">
+          <div class="team-member-image">
+            <img src="https://i.pravatar.cc/400?img=20" alt="Emma Williams">
+          </div>
+          <div class="team-member-info">
+            <h3 class="team-member-name">Emma Williams</h3>
+            <p class="team-member-role">Content Strategist</p>
+            <p class="team-member-bio">
+              Emma crafts compelling content strategies that engage, inform, and convert.
+            </p>
+            <div class="team-member-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- CTA SECTION -->
   <section class="cta-section">
-    <h2 class="animate-on-scroll">Explore Our Services</h2>
-    <p class="animate-on-scroll animate-delay-1">
-      From architectural concept and master planning to turnkey solutions and landscape architecture, 
-      we offer comprehensive services to bring your vision to life.
-    </p>
-    <a href="services.html" class="cta-btn animate-on-scroll animate-delay-2">View All Services</a>
+    <div class="container">
+      <div class="cta-content" data-aos="fade-up">
+        <h2>Ready to Work Together?</h2>
+        <p>Let's create something amazing and take your business to the next level.</p>
+        <a href="contact.html" class="btn btn-primary btn-large">Get in Touch</a>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-column">
-        <h3>Urbanways</h3>
-        <p>Crafting spaces that inspire, elevate, and endure. Building the future of urban living with passion and precision.</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <div class="footer-logo">
+            <span class="logo-text">Urban</span><span class="logo-accent">Connect</span>
+          </div>
+          <p class="footer-description">
+            Empowering businesses to thrive in the digital age through innovative
+            marketing strategies and creative excellence.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="footer-social-link"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">Services</h3>
+          <ul class="footer-links">
+            <li><a href="services.html">SEO Optimization</a></li>
+            <li><a href="services.html">Social Media</a></li>
+            <li><a href="services.html">Content Marketing</a></li>
+            <li><a href="services.html">PPC Advertising</a></li>
+            <li><a href="services.html">Email Marketing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">Newsletter</h3>
+          <p class="footer-newsletter-text">
+            Subscribe to get the latest digital marketing tips and insights.
+          </p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email" class="newsletter-input" required>
+            <button type="submit" class="newsletter-btn">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
       </div>
-      <div class="footer-column">
-        <h3>Quick Links</h3>
-        <p><a href="about.html">About Us</a></p>
-        <p><a href="services.html">Services</a></p>
-        <p><a href="index.html#portfolio">Portfolio</a></p>
-        <p><a href="contact.html">Contact</a></p>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 UrbanConnect. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
       </div>
-      <div class="footer-column">
-        <h3>Contact</h3>
-        <p>823, Indira Nagar Phase 2</p>
-        <p>Vasant Vihar, Dehradun</p>
-        <p>Uttarakhand 248006</p>
-        <p><a href="tel:+917248877772">+91 724 887 7772</a></p>
-        <p><a href="mailto:info@urbanways.co.in">info@urbanways.co.in</a></p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 <span class="urban">Urban</span><span class="ways">ways</span>. All Rights Reserved. | 
-      <a href="https://www.urbanways.co.in/terms">Terms of Use</a></p>
     </div>
   </footer>
 
-  <script>
-    // Header scroll effect
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
-      } else {
-        header.style.boxShadow = 'none';
-      }
-    });
+  <script src="main.js"></script>
 
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: '0px 0px -80px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-visible');
-          // Unobserve after animation to prevent re-triggering
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    // Observe all animated elements
-    document.querySelectorAll('.animate-on-scroll, .animate-fade, .animate-scale').forEach(el => {
-      observer.observe(el);
-    });
-  </script>
 </body>
-
 </html>

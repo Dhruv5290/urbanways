@@ -3,658 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Urbanways</title>
+  <title>Contact Us | UrbanConnect Digital Marketing</title>
+  <meta name="description" content="Get in touch with UrbanConnect. Let's discuss how we can help grow your business with our digital marketing services.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --gold: #c9a961;
-      --pink: #e91e63;
-      --dark: #1a1a1a;
-      --charcoal: #2d2d2d;
-      --light-gray: #f5f5f5;
-      --white: #ffffff;
-      --accent-teal: #00bfa6;
-      --text-muted: #666;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--dark);
-      background: var(--white);
-      line-height: 1.8;
-      overflow-x: hidden;
-    }
-
-    /* HEADER */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem 6%;
-      max-width: 1600px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    .logo a {
-      text-decoration: none;
-    }
-
-    .logo .urban {
-      color: var(--dark);
-    }
-
-    .logo .ways {
-      color: var(--pink);
-    }
-
-    nav {
-      display: flex;
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    nav a {
-      color: var(--dark);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 400;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      position: relative;
-      transition: color 0.3s ease;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      width: 0;
-      height: 1px;
-      background: var(--pink);
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-    }
-
-    nav a:hover::after,
-    nav a.active::after {
-      width: 100%;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--pink);
-    }
-
-    /* HERO SECTION */
-    .hero-section {
-      height: 85vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-                  url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920') center/cover no-repeat;
-      margin-top: 80px;
-    }
-
-    .hero-content {
-      text-align: center;
-      color: var(--white);
-      max-width: 900px;
-      padding: 0 5%;
-    }
-
-    .hero-label {
-      font-size: 0.75rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      font-weight: 400;
-      opacity: 0;
-      animation: fadeUp 1s ease forwards 0.2s;
-    }
-
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      font-weight: 500;
-      line-height: 1.2;
-      margin-bottom: 2rem;
-      letter-spacing: -1px;
-      opacity: 0;
-      animation: fadeUp 1s ease forwards 0.4s;
-    }
-
-    .hero-description {
-      font-size: 1.1rem;
-      font-weight: 300;
-      line-height: 1.8;
-      opacity: 0;
-      animation: fadeUp 1s ease forwards 0.6s;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-    }
-
-    /* SLIDE UP ANIMATION */
-    .slide-up {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .slide-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* CONTACT INFO SECTION */
-    .contact-info-section {
-      padding: 120px 8%;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-size: 0.75rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-      font-weight: 500;
-      text-align: center;
-    }
-
-    .contact-info-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 500;
-      line-height: 1.4;
-      margin-bottom: 1rem;
-      color: var(--dark);
-      letter-spacing: -0.5px;
-      text-align: center;
-    }
-
-    .contact-intro {
-      text-align: center;
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 80px;
-      font-weight: 300;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 60px;
-      margin-bottom: 80px;
-    }
-
-    .contact-card a {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .contact-address-link {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.3s ease;
-      display: inline-block;
-    }
-
-    .contact-address-link:hover {
-      color: var(--pink);
-    }
-
-    .contact-card {
-      text-align: center;
-      padding: 50px 30px;
-      background: var(--light-gray);
-      border-radius: 0;
-      transition: all 0.4s ease;
-    }
-
-    .contact-card:hover {
-      background: var(--white);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-      transform: translateY(-5px);
-    }
-
-    .contact-icon {
-      width: 70px;
-      height: 70px;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 2rem;
-      font-size: 1.5rem;
-      color: var(--gold);
-      transition: all 0.4s ease;
-    }
-
-    .contact-card:hover .contact-icon {
-      background: var(--gold);
-      color: var(--white);
-      transform: scale(1.1);
-    }
-
-    .contact-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      color: var(--dark);
-      font-weight: 500;
-      letter-spacing: 0.5px;
-    }
-
-    .contact-link {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 1.05rem;
-      font-weight: 400;
-      transition: color 0.3s ease;
-      display: block;
-    }
-
-    .contact-link:hover {
-      color: var(--pink);
-    }
-
-    .contact-address {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      line-height: 1.8;
-      font-weight: 300;
-    }
-
-    /* ADDRESS DETAILS SECTION */
-    .address-details {
-      background: var(--dark);
-      color: var(--white);
-      padding: 100px 8%;
-    }
-
-    .address-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .address-content h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 500;
-      margin-bottom: 2rem;
-      color: var(--white);
-      letter-spacing: -0.5px;
-    }
-
-    .address-text {
-      font-size: 1.2rem;
-      line-height: 1.9;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-    }
-
-    .address-actions {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .action-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 35px;
-      background: transparent;
-      border: 1px solid var(--white);
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.85rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      transition: all 0.4s ease;
-      font-weight: 400;
-    }
-
-    .action-btn:hover {
-      background: var(--white);
-      color: var(--dark);
-    }
-
-    .action-btn.primary {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
-
-    .action-btn.primary:hover {
-      background: transparent;
-      color: var(--gold);
-      border-color: var(--gold);
-    }
-
-    .address-map {
-      height: 400px;
-      overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .address-map iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      filter: grayscale(30%);
-      transition: filter 0.4s ease;
-    }
-
-    .address-map:hover iframe {
-      filter: grayscale(0%);
-    }
-
-    /* SOCIAL MEDIA SECTION */
-    .social-section {
-      padding: 120px 8%;
-      background: var(--light-gray);
-    }
-
-    .social-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .social-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 500;
-      margin-bottom: 1rem;
-      color: var(--dark);
-    }
-
-    .social-intro {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 60px;
-      font-weight: 300;
-    }
-
-    .social-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-    }
-
-    .social-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 40px;
-      background: var(--white);
-      text-decoration: none;
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .social-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      transform: scaleX(0);
-      transition: transform 0.4s ease;
-    }
-
-    .social-card.instagram::before {
-      background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    }
-
-    .social-card.facebook::before {
-      background: #1877f2;
-    }
-
-    .social-card.linkedin::before {
-      background: #0077b5;
-    }
-
-    .social-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .social-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-    }
-
-    .social-icon {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-      transition: all 0.4s ease;
-    }
-
-    .social-card.instagram .social-icon {
-      color: #E1306C;
-    }
-
-    .social-card.facebook .social-icon {
-      color: #1877f2;
-    }
-
-    .social-card.linkedin .social-icon {
-      color: #0077b5;
-    }
-
-    .social-card:hover .social-icon {
-      transform: scale(1.1);
-    }
-
-    .social-name {
-      font-size: 1.2rem;
-      color: var(--dark);
-      font-weight: 500;
-      letter-spacing: 0.5px;
-    }
-
-    /* CTA SECTION */
-    .cta-section {
-      background: var(--white);
-      padding: 100px 8%;
-      text-align: center;
-    }
-
-    .cta-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      color: var(--dark);
-    }
-
-    .cta-section p {
-      font-size: 1.1rem;
-      margin-bottom: 2.5rem;
-      color: var(--text-muted);
-      font-weight: 300;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      padding: 16px 50px;
-      background: var(--dark);
-      border: 1px solid var(--dark);
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.85rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: all 0.4s ease;
-      font-weight: 400;
-    }
-
-    .cta-btn:hover {
-      background: transparent;
-      color: var(--dark);
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--charcoal);
-      color: rgba(255, 255, 255, 0.7);
-      padding: 60px 6% 30px;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 50px;
-      max-width: 1400px;
-      margin: 0 auto 50px;
-    }
-
-    .footer-column h3 {
-      color: var(--white);
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      font-weight: 500;
-    }
-
-    .footer-column p,
-    .footer-column a {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      font-size: 0.9rem;
-      line-height: 2;
-      transition: color 0.3s ease;
-    }
-
-    .footer-column a:hover {
-      color: var(--pink);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 30px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.5);
-    }
-
-    .footer-bottom a {
-      color: var(--pink);
-      text-decoration: none;
-    }
-
-    /* ICONS */
-    .icon {
-      display: inline-block;
-      width: 1em;
-      height: 1em;
-      vertical-align: middle;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .address-container {
-        grid-template-columns: 1fr;
-        gap: 60px;
-      }
-
-      .social-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .header-content {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-      }
-
-      nav a {
-        font-size: 0.8rem;
-      }
-
-      .contact-info-section,
-      .address-details,
-      .social-section,
-      .cta-section {
-        padding: 80px 5%;
-      }
-
-      .address-map {
-        height: 300px;
-      }
-
-      .address-actions {
-        flex-direction: column;
-      }
-
-      .action-btn {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -663,241 +18,279 @@
     <div class="header-content">
       <div class="logo">
         <a href="index.html">
-          <span class="urban">Urban</span><span class="ways">ways</span>
+          <span class="logo-text">Urban</span><span class="logo-accent">Connect</span>
         </a>
       </div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="index.html#portfolio">Portfolio</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html" class="active">Contact</a>
+      <nav id="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
       </nav>
+      <a href="contact.html" class="cta-header-btn">Get Started</a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <div class="hero-label">Get In Touch</div>
-      <h1 class="hero-title">Let's Create Something Extraordinary</h1>
-      <p class="hero-description">
-        Reach out to us today and bring your vision to life with Urbanways.
-      </p>
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="page-header-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="grid-pattern"></div>
     </div>
-  </section>
-
-  <!-- CONTACT INFO -->
-  <section class="contact-info-section slide-up">
-    <div class="section-label">Contact Information</div>
-    <h2>How to Reach Us</h2>
-    <p class="contact-intro">We'd love to hear from you. Here's how you can connect with us.</p>
-    
-    <div class="contact-grid">
-      <!-- Phone -->
-      <div class="contact-card">
-        <div class="contact-icon">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-          </svg>
-        </div>
-        <h3>Call Us</h3>
-        <a href="tel:+917248877772" class="contact-link">+91 724 887 7772</a>
-      </div>
-
-      <!-- Email -->
-      <div class="contact-card">
-        <div class="contact-icon">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
-        </div>
-        <h3>Email Us</h3>
-        <a href="mailto:info@urbanways.co.in" class="contact-link">info@urbanways.co.in</a>
-      </div>
-
-      <!-- Location -->
-      <div class="contact-card">
-        <div class="contact-icon">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-        </div>
-        <h3>Visit Us</h3>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=30.315483,77.998015" 
-           target="_blank" 
-           rel="noopener noreferrer"
-           class="contact-address-link">
-          <p class="contact-address">
-            823, Indira Nagar Phase 2<br>
-            Vasant Vihar, Dehradun<br>
-            Uttarakhand 248006
-          </p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ADDRESS WITH MAP -->
-  <section class="address-details slide-up">
-    <div class="address-container">
-      <div class="address-content">
-        <h2>Visit Our Office</h2>
-        <p class="address-text">
-          Our studio is located in the heart of Dehradun. We welcome you to visit us and discuss 
-          your project over a cup of coffee. Let's turn your architectural dreams into reality.
+    <div class="container">
+      <div class="page-header-content" data-aos="fade-up">
+        <h1 class="page-title">Get In <span class="gradient-text">Touch</span></h1>
+        <p class="page-description">
+          Ready to take your digital marketing to the next level? Let's talk about how we can help your business grow.
         </p>
-        <div class="address-actions">
-          <a href="https://www.google.com/maps/dir/?api=1&destination=30.315483,77.998015" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             class="action-btn primary">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 11l3 3L22 4"/>
-              <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-            </svg>
-            Get Directions
-          </a>
-          <a href="tel:+917248877772" class="action-btn">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-            </svg>
-            Call Now
-          </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-page-section">
+    <div class="container">
+      <div class="contact-page-grid">
+        <!-- Contact Info -->
+        <div class="contact-page-info" data-aos="fade-right">
+          <h2 class="contact-page-title">Let's Create Something<br/><span class="gradient-text">Amazing Together</span></h2>
+          <p class="contact-page-description">
+            Whether you're looking to launch a new campaign, revamp your digital strategy, or just want to learn more about what we do, we'd love to hear from you.
+          </p>
+
+          <div class="contact-page-details">
+            <div class="contact-page-item">
+              <div class="contact-page-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-page-text">
+                <h4>Email Us</h4>
+                <p><a href="mailto:hello@urbanconnect.com">hello@urbanconnect.com</a></p>
+              </div>
+            </div>
+
+            <div class="contact-page-item">
+              <div class="contact-page-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-page-text">
+                <h4>Call Us</h4>
+                <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+              </div>
+            </div>
+
+            <div class="contact-page-item">
+              <div class="contact-page-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-page-text">
+                <h4>Visit Us</h4>
+                <p>123 Digital Avenue<br/>Tech City, TC 12345</p>
+              </div>
+            </div>
+
+            <div class="contact-page-item">
+              <div class="contact-page-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-page-text">
+                <h4>Business Hours</h4>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM<br/>Saturday: 10:00 AM - 4:00 PM</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-page-social">
+            <h4>Follow Us</h4>
+            <div class="social-links-contact">
+              <a href="#" class="social-link-contact"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link-contact"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link-contact"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-link-contact"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-page-form-wrapper" data-aos="fade-left">
+          <form class="contact-page-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group-contact">
+                <label for="name">Your Name *</label>
+                <input type="text" id="name" class="form-input-contact" placeholder="John Doe" required>
+              </div>
+              <div class="form-group-contact">
+                <label for="email">Your Email *</label>
+                <input type="email" id="email" class="form-input-contact" placeholder="john@example.com" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group-contact">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" class="form-input-contact" placeholder="+1 (555) 123-4567">
+              </div>
+              <div class="form-group-contact">
+                <label for="company">Company Name</label>
+                <input type="text" id="company" class="form-input-contact" placeholder="Your Company">
+              </div>
+            </div>
+
+            <div class="form-group-contact">
+              <label for="service">Service Interested In</label>
+              <select id="service" class="form-input-contact">
+                <option value="">Select a service</option>
+                <option value="seo">SEO Optimization</option>
+                <option value="social">Social Media Marketing</option>
+                <option value="content">Content Marketing</option>
+                <option value="ppc">PPC Advertising</option>
+                <option value="email">Email Marketing</option>
+                <option value="analytics">Analytics & Reporting</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group-contact">
+              <label for="message">Your Message *</label>
+              <textarea id="message" class="form-input-contact" rows="6" placeholder="Tell us about your project..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+              Send Message <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
         </div>
       </div>
-      <div class="address-map">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3443.5178626842785!2d77.99801499999999!3d30.315483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzDCsDE4JzU1LjciTiA3N8KwNTknNTIuOSJF!5e0!3m2!1sen!2sin!4v1234567890"
-          width="100%" 
-          height="100%" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Urbanways Location Map">
-        </iframe>
-      </div>
     </div>
   </section>
 
-  <!-- SOCIAL MEDIA -->
-  <section class="social-section slide-up">
-    <div class="social-container">
-      <div class="section-label">Connect With Us</div>
-      <h2>Follow Our Journey</h2>
-      <p class="social-intro">
-        Follow us on social media for updates, projects, and inspiration.
-      </p>
-      
-      <div class="social-grid">
-        <a href="https://www.instagram.com/urban_ways_?igsh=NXc4eXcwZTk0dWdn" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="social-card instagram">
-          <div class="social-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-          </div>
-          <span class="social-name">Instagram</span>
-        </a>
-
-        <a href="https://www.facebook.com/share/1H8whATrkX/" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="social-card facebook">
-          <div class="social-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-          </div>
-          <span class="social-name">Facebook</span>
-        </a>
-
-        <a href="https://www.linkedin.com/company/urbanways/" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="social-card linkedin">
-          <div class="social-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-          </div>
-          <span class="social-name">LinkedIn</span>
-        </a>
-      </div>
+  <!-- MAP SECTION (Optional) -->
+  <section class="map-section">
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093714!2d144.9537353159042!3d-37.817209742021385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5b0!3m2!1sen!2sus!4v1576424281440!5m2!1sen!2sus"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section slide-up">
-    <h2>Ready to Start Your Project?</h2>
-    <p>
-      Let's collaborate to create spaces that inspire, function beautifully, and stand the test of time.
-    </p>
-    <a href="tel:+917248877772" class="cta-btn">Schedule a Consultation</a>
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">FAQ</span>
+        <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="faq-question">How long does it take to see results?</h3>
+          <p class="faq-answer">
+            Results vary depending on the service and your current situation. SEO typically takes 3-6 months, while PPC campaigns can show results within weeks. We provide regular updates and transparent reporting throughout the process.
+          </p>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="faq-question">What's your pricing structure?</h3>
+          <p class="faq-answer">
+            We offer customized packages based on your specific needs and goals. After our initial consultation, we'll provide a detailed proposal with transparent pricing. We also offer flexible monthly retainers and project-based pricing.
+          </p>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="faq-question">Do you work with small businesses?</h3>
+          <p class="faq-answer">
+            Absolutely! We work with businesses of all sizes, from startups to enterprises. We believe every business deserves access to professional digital marketing, and we tailor our services to fit your budget and goals.
+          </p>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+          <h3 class="faq-question">What makes UrbanConnect different?</h3>
+          <p class="faq-answer">
+            We combine data-driven strategies with creative excellence, and we're committed to building long-term partnerships. Our transparent reporting, dedicated account management, and proven track record set us apart.
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-column">
-        <h3>Urbanways</h3>
-        <p>Crafting spaces that inspire, elevate, and endure. Building the future of urban living with passion and precision.</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <div class="footer-logo">
+            <span class="logo-text">Urban</span><span class="logo-accent">Connect</span>
+          </div>
+          <p class="footer-description">
+            Empowering businesses to thrive in the digital age through innovative
+            marketing strategies and creative excellence.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="footer-social-link"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">Services</h3>
+          <ul class="footer-links">
+            <li><a href="services.html">SEO Optimization</a></li>
+            <li><a href="services.html">Social Media</a></li>
+            <li><a href="services.html">Content Marketing</a></li>
+            <li><a href="services.html">PPC Advertising</a></li>
+            <li><a href="services.html">Email Marketing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-title">Newsletter</h3>
+          <p class="footer-newsletter-text">
+            Subscribe to get the latest digital marketing tips and insights.
+          </p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email" class="newsletter-input" required>
+            <button type="submit" class="newsletter-btn">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
       </div>
-      <div class="footer-column">
-        <h3>Quick Links</h3>
-        <p><a href="about.html">About Us</a></p>
-        <p><a href="services.html">Services</a></p>
-        <p><a href="index.html#portfolio">Portfolio</a></p>
-        <p><a href="contact.html">Contact</a></p>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 UrbanConnect. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
       </div>
-      <div class="footer-column">
-        <h3>Contact</h3>
-        <p>823, Indira Nagar Phase 2</p>
-        <p>Vasant Vihar, Dehradun</p>
-        <p>Uttarakhand 248006</p>
-        <p><a href="tel:+917248877772">+91 724 887 7772</a></p>
-        <p><a href="mailto:info@urbanways.co.in">info@urbanways.co.in</a></p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 <span class="urban">Urban</span><span class="ways">ways</span>. All Rights Reserved. | 
-      <a href="https://www.urbanways.co.in/terms">Terms of Use</a></p>
     </div>
   </footer>
 
-  <script>
-    // Header scroll effect
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.08)';
-      } else {
-        header.style.boxShadow = 'none';
-      }
-    });
-
-    // Slide up animations on scroll
-    const slideElements = document.querySelectorAll('.slide-up');
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    slideElements.forEach(el => observer.observe(el));
-  </script>
+  <script src="main.js"></script>
 
 </body>
 </html>
