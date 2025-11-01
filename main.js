@@ -22,8 +22,21 @@ window.addEventListener('scroll', () => {
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const nav = document.getElementById('nav');
 
-if (mobileMenuToggle) {
-  mobileMenuToggle.addEventListener('click', () => {
+function closeMobileMenu() {
+  if (nav && mobileMenuToggle) {
+    nav.classList.remove('active');
+    mobileMenuToggle.classList.remove('active');
+
+    const spans = mobileMenuToggle.querySelectorAll('span');
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+}
+
+if (mobileMenuToggle && nav) {
+  mobileMenuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     nav.classList.toggle('active');
     mobileMenuToggle.classList.toggle('active');
 
@@ -37,6 +50,23 @@ if (mobileMenuToggle) {
       spans[0].style.transform = 'none';
       spans[1].style.opacity = '1';
       spans[2].style.transform = 'none';
+    }
+  });
+
+  // Close menu when clicking nav links
+  const navLinks = nav.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMobileMenu();
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (nav.classList.contains('active') &&
+        !nav.contains(e.target) &&
+        !mobileMenuToggle.contains(e.target)) {
+      closeMobileMenu();
     }
   });
 }
@@ -59,15 +89,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       e.preventDefault();
 
       // Close mobile menu if open
-      if (nav && nav.classList.contains('active')) {
-        nav.classList.remove('active');
-        mobileMenuToggle.classList.remove('active');
-
-        const spans = mobileMenuToggle.querySelectorAll('span');
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
-      }
+      closeMobileMenu();
 
       const headerHeight = header.offsetHeight;
       const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
@@ -454,14 +476,8 @@ document.querySelectorAll('.contact-text p').forEach(element => {
 // ===================================
 document.addEventListener('keydown', (e) => {
   // ESC key to close mobile menu
-  if (e.key === 'Escape' && nav && nav.classList.contains('active')) {
-    nav.classList.remove('active');
-    mobileMenuToggle.classList.remove('active');
-
-    const spans = mobileMenuToggle.querySelectorAll('span');
-    spans[0].style.transform = 'none';
-    spans[1].style.opacity = '1';
-    spans[2].style.transform = 'none';
+  if (e.key === 'Escape') {
+    closeMobileMenu();
   }
 });
 
